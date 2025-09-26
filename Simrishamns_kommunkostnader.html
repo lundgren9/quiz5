@@ -916,11 +916,12 @@
             
             currentView = view;
             
-            // Visa/dölj sektioner
+            // Här skedde en uppdatering - tog bort .visual-comparison från 'total' och 'perCapita' vyerna
+            // så att visuella jämförelsen bara visas när man klickar på "Visuell jämförelse"
             const sections = {
                 'visual': ['.visual-comparison'],
-                'total': ['.visual-comparison', '#socialBreakdown', '#chartsContainer'],
-                'perCapita': ['.visual-comparison', '#socialBreakdown', '#chartsContainer'],
+                'total': ['#socialBreakdown', '#chartsContainer'],
+                'perCapita': ['#socialBreakdown', '#chartsContainer'],
                 'comparison': ['#comparisonSection']
             };
             
