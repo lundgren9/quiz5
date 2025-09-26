@@ -81,12 +81,21 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
         
+        /* Här skedde en uppdatering - gjorde navigationsknapparna sticky så de alltid syns */
         .controls {
             display: flex;
             justify-content: center;
             gap: 15px;
             margin-bottom: 30px;
             flex-wrap: wrap;
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            border-radius: 0 0 15px 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            z-index: 100;
         }
         
         /* ALLA NAVIGATIONSKNAPPAR - NU GRÖNA! */
@@ -600,6 +609,14 @@
             <div class="population-info">👥 Befolkning: 19 000 invånare</div>
         </div>
         
+        <!-- Här skedde en uppdatering - flyttade navigationsknapparna högst upp så de alltid syns -->
+        <div class="controls">
+            <button class="toggle-btn" id="visualBtn" onclick="toggleView('visual')">📊 Visuell jämförelse</button>
+            <button class="toggle-btn" id="totalBtn" onclick="toggleView('total')">💸 Totala kostnader</button>
+            <button class="toggle-btn" id="perCapitaBtn" onclick="toggleView('perCapita')">👤 Per invånare</button>
+            <button class="toggle-btn active" id="comparisonBtn" onclick="toggleView('comparison')">📈 Sverige-jämförelse</button>
+        </div>
+        
         <div class="visual-comparison">
             <h2>🎯 Kostnadsjämförelse per invånare</h2>
             <div class="comparison-visual">
@@ -629,13 +646,6 @@
             <div class="ratio-info">
                 📊 Socialförvaltningen kostar 10,1 gånger mer än Kultur & Fritid per invånare
             </div>
-        </div>
-        
-        <div class="controls">
-            <button class="toggle-btn" id="visualBtn" onclick="toggleView('visual')">📊 Visuell jämförelse</button>
-            <button class="toggle-btn" id="totalBtn" onclick="toggleView('total')">💸 Totala kostnader</button>
-            <button class="toggle-btn" id="perCapitaBtn" onclick="toggleView('perCapita')">👤 Per invånare</button>
-            <button class="toggle-btn active" id="comparisonBtn" onclick="toggleView('comparison')">📈 Sverige-jämförelse</button>
         </div>
         
         <div class="social-breakdown" id="socialBreakdown" style="display: none;">
