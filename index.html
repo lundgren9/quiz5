@@ -168,6 +168,28 @@
             background: linear-gradient(135deg, #3498db, #2980b9);
         }
 
+        /* Här skedde en uppdatering - la till styling för "Gå direkt till kostnadsanalys" knappen */
+        .direct-costs-btn {
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: block;
+            margin: 15px auto 0 auto;
+            min-width: 250px;
+        }
+
+        .direct-costs-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(39, 174, 96, 0.4);
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+        }
+
         /* Frågecontainer */
         .question-container {
             margin-bottom: 30px;
@@ -609,6 +631,11 @@
             .info-screen h2 {
                 font-size: 1.8rem;
             }
+
+            .direct-costs-btn {
+                min-width: 200px;
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
@@ -638,6 +665,8 @@
             <p>Den intressanta paradoxen är att Simrishamn faktiskt är mer kostnadseffektiv per äldre invånare än riksgenomsnittet, men den stora andelen äldre gör att totalkostnaderna ändå blir höga per invånare.</p>
             <!-- Här skedde en uppdatering - la till knapp för att låta användaren själv välja när de vill gå vidare -->
             <button class="continue-btn" id="continueBtn" onclick="proceedToQuiz()">Gå vidare till Quiz ➡️</button>
+            <!-- Här skedde en uppdatering - la till knapp för att gå direkt till kostnadsfilen -->
+            <button class="direct-costs-btn" onclick="goDirectToCosts()">Gå direkt vidare till kostnadsanalys 📊</button>
         </div>
 
         <!-- Quiz-innehåll som byts ut dynamiskt -->
@@ -1020,6 +1049,12 @@
         // Här skedde en uppdatering - ny funktion för att gå till kostnadsfilen
         function goToCostsFile() {
             // Öppna kostnadsfilen i samma fönster
+            window.location.href = 'Simrishamns_kommunkostnader.html';
+        }
+
+        // Här skedde en uppdatering - ny funktion för att gå direkt till kostnadsfilen från kommunbeskrivningen
+        function goDirectToCosts() {
+            // Gå direkt till kostnadsfilen utan quiz
             window.location.href = 'Simrishamns_kommunkostnader.html';
         }
 
