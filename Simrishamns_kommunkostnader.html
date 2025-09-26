@@ -394,6 +394,195 @@
             font-size: 0.9em;
             opacity: 0.9;
         }
+
+        /* Här skedde en uppdatering - gjorde åldersstatistiken mer framträdande */
+        .stat-box.highlight {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+            color: white;
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(243, 156, 18, 0.3);
+            border: 3px solid #fff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: visible;
+        }
+
+        .stat-box.highlight:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 35px rgba(243, 156, 18, 0.4);
+        }
+
+        .stat-box.highlight .stat-number {
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .stat-box.highlight .stat-label {
+            font-weight: bold;
+            opacity: 1;
+        }
+
+        /* Här skedde en uppdatering - tvingar tooltip att vara helt solid med flera lager */
+        .age-tooltip {
+            position: absolute;
+            top: 50%;
+            left: 120%;
+            transform: translateY(-50%);
+            background: #ffffff;
+            /* Flera lager för att säkerställa solid bakgrund */
+            background-color: #ffffff !important;
+            background-image: linear-gradient(#ffffff, #ffffff) !important;
+            color: #333333;
+            padding: 20px;
+            border-radius: 15px;
+            font-size: 0.9em;
+            width: 350px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 9999;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+            pointer-events: none;
+            /* Tvingar solid bakgrund på alla sätt */
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+            border: 3px solid #cccccc;
+            /* Extra säkerhet med box-shadow inset */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), inset 0 0 0 1000px #ffffff;
+        }
+
+        /* Extra solid bakgrundslager */
+        .age-tooltip::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #ffffff;
+            border-radius: 15px;
+            z-index: -1;
+        }
+
+        .age-tooltip::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -12px;
+            transform: translateY(-50%);
+            border: 12px solid transparent;
+            border-right-color: #ffffff;
+            z-index: 1;
+        }
+
+        .stat-box.highlight:hover .age-tooltip {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .age-comparison {
+            margin: 10px 0;
+            padding: 8px;
+            background: rgba(255, 255, 255, 0.3);
+            background-color: rgba(255, 255, 255, 0.3) !important;
+            border-radius: 8px;
+            border-left: 4px solid #f39c12;
+            /* Tvingar solid bakgrund */
+            backdrop-filter: none !important;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .age-comparison strong {
+            color: #333333;
+            font-weight: bold;
+        }
+
+        /* Här skedde en uppdatering - tvingar alla element i tooltip:en att vara helt solida */
+        .age-tooltip * {
+            background-color: inherit !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+        }
+
+        /* Här skedde en uppdatering - fixade så att age-comparison behåller sin bakgrund */
+        .age-tooltip h4,
+        .age-tooltip .age-comparison strong,
+        .age-tooltip .age-comparison em {
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+        }
+
+        /* Säkerställer att alla age-comparison boxar har solid bakgrund */
+        .age-tooltip .age-comparison {
+            background: rgba(255, 255, 255, 0.3) !important;
+            background-color: rgba(255, 255, 255, 0.3) !important;
+            border: 1px solid rgba(255, 255, 255, 0.2) !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+        }
+
+        /* Här skedde en uppdatering - enhetlig aggressiv CSS för alla sektioner med olika färger */
+        
+        /* Simrishamn-sektion - orange tema */
+        .simrishamn-section {
+            background: #fff3e0 !important;
+            background-color: #fff3e0 !important;
+            background-image: linear-gradient(#fff3e0, #fff3e0) !important;
+            border: 3px solid #ff9800 !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+            opacity: 1 !important;
+            box-shadow: inset 0 0 0 1000px #fff3e0 !important;
+        }
+
+        .simrishamn-section strong,
+        .simrishamn-section em {
+            background: transparent !important;
+            color: #333 !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+        }
+
+        /* Sverige-sektion - blå tema */
+        .sverige-section {
+            background: #e3f2fd !important;
+            background-color: #e3f2fd !important;
+            background-image: linear-gradient(#e3f2fd, #e3f2fd) !important;
+            border: 3px solid #2196f3 !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+            opacity: 1 !important;
+            box-shadow: inset 0 0 0 1000px #e3f2fd !important;
+        }
+
+        .sverige-section strong,
+        .sverige-section em {
+            background: transparent !important;
+            color: #333 !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+        }
+
+        /* Lund-sektion - grön tema */
+        .lund-section {
+            background: #e8f5e8 !important;
+            background-color: #e8f5e8 !important;
+            background-image: linear-gradient(#e8f5e8, #e8f5e8) !important;
+            border: 3px solid #4caf50 !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+            opacity: 1 !important;
+            box-shadow: inset 0 0 0 1000px #e8f5e8 !important;
+        }
+
+        .lund-section strong,
+        .lund-section em {
+            background: transparent !important;
+            color: #333 !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+        }
         
         .comparison-bars {
             margin: 20px 0;
@@ -593,6 +782,31 @@
             .comparison-visual { flex-direction: column; gap: 30px; height: auto; }
             .modal-content { width: 95%; margin: 10% auto; }
             .tooltip { display: none; }
+            
+            /* Här skedde en uppdatering - anpassade ålderstooltip för mobiler */
+            .age-tooltip {
+                width: 280px;
+                font-size: 0.8em;
+                padding: 15px;
+                /* På mobiler, visa tooltip ovanför istället för till höger */
+                top: -20px;
+                left: 50%;
+                transform: translate(-50%, -100%);
+            }
+            
+            .age-tooltip::after {
+                /* Pil nedåt för mobiler */
+                top: 100%;
+                left: 50%;
+                transform: translateX(-50%);
+                border: 8px solid transparent;
+                border-top-color: #2c3e50;
+                border-right-color: transparent;
+            }
+            
+            .stat-box.highlight .stat-number {
+                font-size: 2.2em;
+            }
         }
     </style>
 </head>
@@ -667,9 +881,34 @@
                 <p><strong>Paradoxen:</strong> Simrishamn har lägre kostnad per äldre invånare än riksgenomsnittet, men ändå högre total social kostnad per invånare. Förklaringen ligger i kommunens unika åldersstruktur.</p>
                 
                 <div class="demographic-stats">
-                    <div class="stat-box">
+                    <!-- Här skedde en uppdatering - gjorde åldersstatistiken mer framträdande med tooltip -->
+                    <div class="stat-box highlight">
                         <span class="stat-number">35.5%</span>
                         <span class="stat-label">över 65 år</span>
+                        <div class="age-tooltip">
+                            <h4 style="margin-bottom: 15px; color: #333333;">📊 Åldersfördelning i jämförelse</h4>
+                            
+                            <!-- Här skedde en uppdatering - gav alla sektioner egna klasser för enhetlig styling -->
+                            <div class="age-comparison simrishamn-section">
+                                <strong>🏛️ Simrishamn:</strong> 35,5% över 65 år<br>
+                                <em>Extremt hög andel äldre invånare</em>
+                            </div>
+                            
+                            <div class="age-comparison sverige-section">
+                                <strong>🇸🇪 Sverige:</strong> ~20,8% över 65 år<br>
+                                <em>Simrishamn har 70% fler äldre än riksgenomsnittet</em>
+                            </div>
+                            
+                            <!-- Här skedde en uppdatering - gav Lund-sektionen en egen klass för att fixa transparensen -->
+                            <div class="age-comparison lund-section">
+                                <strong>🎓 Lund:</strong> ~17,4% över 65 år<br>
+                                <em>Simrishamn har över DUBBELT så många äldre som Lund</em>
+                            </div>
+                            
+                            <div style="margin-top: 15px; padding: 10px; background: rgba(243, 156, 18, 0.2); border-radius: 8px;">
+                                <strong>💡 Konsekvens:</strong> Den höga andelen äldre förklarar varför Simrishamns sociala kostnader är höga trots effektiv äldrevård.
+                            </div>
+                        </div>
                     </div>
                     <div class="stat-box">
                         <span class="stat-number">18.0%</span>
